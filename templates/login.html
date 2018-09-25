@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    EM's Blog|登录
+{% endblock %}
+
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'blog.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+{% endblock %}
+
+{% block nav_home_active %}active{% endblock %}
+
+{% block content %}
+    <div class="containter">
+        <div class="row">
+             <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">登录</h3>
+                  </div>
+                  <div class="panel-body">
+                   <form action="" method="POST">
+                            {% csrf_token %}
+                            {% for field in login_form %}
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                                <p class="text-danger">{{ field.errors.as_text }}</p>
+                            {% endfor %}
+                            <span class="pull-left text-danger">{{ login_form.non_field_errors }}</span>
+                            <input type="submit" value="登录" class="btn btn-primary btn-lg btn-block">
+                        </form>
+                  </div>
+                </div>
+                 <div class="panel panel-default">
+                    <div class="panel-body">
+                        <a class="btn btn-success btn-lg btn-block" href="{% url "social:begin" "github" %}"><img src="{% static 'media/githubdeng.svg' %}">&nbsp;&nbsp;Github登录</a>
+                 </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

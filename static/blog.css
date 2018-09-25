@@ -1,0 +1,67 @@
+
+ul.blog-types{
+    list-style-type: none;
+}
+div.blog:not(:last-child){
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #eeeeee;
+}
+div.blog h3{
+    margin-top: 0.5em;
+
+}
+div.blog p.blog-info{
+    margin-bottom: 0;
+    text-align: center;
+}
+ul.blog-info-description{
+    list-style-type: none;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+ul.blog-info-description li{
+    display: inline-block;
+    margin-right: 0.5em;
+
+}
+div.paginator{
+    text-align: center;
+}
+div.blog-content{
+    text-indent: 2em;
+}
+
+h3.blog-title{
+    font-size: 20px!important;
+    text-align: center;
+    font-family: Merriweather,-apple-system,Verdana,"PingFang SC","Helvetica Neue",Arial,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif!important;
+
+}
+div.blog-more{
+    margin-top: 1em;
+
+}
+div.comment_area{
+    margin-top: 2em;
+
+}
+h3.comment_area-title{
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 0.4em;
+}
+div.django-ckeditor-widget{
+    width: 100%;
+}
+div.comment{
+    border-bottom: 1px dashed #cccccc;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+div.reply{
+    margin-left: 2em;
+}
+a.read_more{
+    text-decoration-line: none;
+}
