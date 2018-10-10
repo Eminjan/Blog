@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {# 页面标题 #}
 {% block title %}
     {{ blog.title }}|EM's Blog
 {% endblock %}
 {% block nav_blog_active %}active{% endblock %}
-{% load staticfiles %}
+
 {% load comment_tags %}
 
 
@@ -22,6 +23,7 @@
 {% endblock %}
 
 {% block content %}
+     <div class="container">
     <div class="container">
         <div class="row">
            <div class="col-md-8 col-md-offset-2">
@@ -118,6 +120,7 @@
         </div>
     </div>
     </div>
+
 
 
 {% endblock %}
