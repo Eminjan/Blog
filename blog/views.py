@@ -5,6 +5,7 @@ from django.conf import settings
 from django.core.paginator import Paginator
 from django.db.models import Count
 from read_statistics.utils import read_statistics_once_read
+from django.views.decorators.cache import cache_page
 from django.contrib.contenttypes.models import ContentType
 
 
@@ -44,12 +45,13 @@ def get_blog_list_common_data(request, blogs_all_list):
     return context
 
 
+@cache_page(60*5)
 def blog_list(request):
     blogs_all_list = Blog.objects.all()
     context = get_blog_list_common_data(request, blogs_all_list)
     return render(request, 'blog_list.html', context)
 
-
+@cache_page(60*15)
 def blog_detail(request, blog_pk):
     blog = get_object_or_404(Blog, pk=blog_pk)
     read_cookie_key = read_statistics_once_read(request, blog)

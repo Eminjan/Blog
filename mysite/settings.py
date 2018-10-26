@@ -47,12 +47,21 @@ INSTALLED_APPS = [
 
 ]
 
+# django social-app 配置
+
 AUTHENTICATION_BACKENDS = (
 
     'social_core.backends.github.GithubOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+
+
+
+
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+
 
 # 填写Github中获取到的KEY和SECRET
 SOCIAL_AUTH_GITHUB_KEY = '####'
@@ -72,7 +81,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mysite.urls'
 
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/blog'
+# SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/blog'
 
 TEMPLATES = [
     {
@@ -88,6 +97,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends',    # 增加这两项
                 'social_django.context_processors.login_redirect',
+                # 'django.template.context_processors.request',
             ],
         },
     },
@@ -204,15 +214,17 @@ SIMDITOR_CONFIGS = {
 #自定义参数
 EACH_PAGE_BLOGS_NUMBER = 2
 
-# 缓存设置
+# Redis缓存设置
+
 CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'my_cache_table',
-        'TIMEOUT': 600,
-        'OPTIONS': {
-            'MAX_ENTRIES': 2000
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+
         }
     }
 }
+
 
