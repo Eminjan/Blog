@@ -5,6 +5,9 @@ from django.contrib import admin
 from .models import BlogType, Blog
 
 
+admin.site.site_title = "EM's Blog后台管理"
+admin.site.site_header = "EM's Blog"
+
 class BlogTypeAdmin(admin.ModelAdmin):
     list_display = ('id', 'type_name')
 
