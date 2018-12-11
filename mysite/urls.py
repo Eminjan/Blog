@@ -31,12 +31,13 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('comment/', include('comment.urls')),
     path(r'', include('social_django.urls', namespace='social')),
+    # path('accounts/', include('allauth.urls')),
     path(r'simditor/', include('simditor.urls')),
 
 
     path('favicon.ico/', RedirectView.as_view(url='/static/media/favicon.ico')),
 
 ]
-
+handler404 = '.views.page_not_found'
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

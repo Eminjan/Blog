@@ -50,22 +50,22 @@ INSTALLED_APPS = [
 # django social-app 配置
 
 AUTHENTICATION_BACKENDS = (
-
-    'social_core.backends.github.GithubOAuth2',
+    # 'social_core.backends.github.GithubOAuth2' ,   # 授权Github
+    'social.backends.weibo.WeiboOAuth2',      # 授权微博
     'django.contrib.auth.backends.ModelBackend',
 )
 
-
-
-
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/blog'
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
-
-
-
 # 填写Github中获取到的KEY和SECRET
-SOCIAL_AUTH_GITHUB_KEY = '####'
-SOCIAL_AUTH_GITHUB_SECRET = '####'
+SOCIAL_AUTH_GITHUB_KEY = 'bca51ef08d7329f61cf5'
+SOCIAL_AUTH_GITHUB_SECRET = '72b8f1429052f598647c6d9e3c2145307409a6a9'
+
+# 填写微博中获取到的KEY和SECRET
+SOCIAL_AUTH_WEIBO_KEY = '1573600565'
+SOCIAL_AUTH_WEIBO_SECRET = '37991e4b43e087aa8bf66e464bfbeeb4'
+
 
 
 MIDDLEWARE = [
@@ -81,7 +81,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mysite.urls'
 
-# SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/blog'
+
 
 TEMPLATES = [
     {

@@ -3,7 +3,7 @@
 #Author:Eminjan
 #@Time  :2018/4/8 17:07
 
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, render_to_response
 from django.contrib.contenttypes.models import ContentType
 from read_statistics.utils import get_seven_days_read_data,get_today_hot_data,get_yesterday_hot_data
 from blog.models import Blog
@@ -69,4 +69,9 @@ def register(request):
     context = {}
     context['reg_form'] = reg_form
     return render(request, 'register.html', context)
+
+
+def page_not_found(request):
+    return render(request, '404.html')
+
 
